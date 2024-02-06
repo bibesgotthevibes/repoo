@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOGS</title>
+    <style>
+        .blog-heading{
+            text-decoration: underline;
+        }
+        .blog{
+            background-color: pink;
+            padding:1%;
+        }
+        body{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>MY BLOGS</h1>
+    
+    <div class="blog-heading"><u>BLOG-1</u></div>
+    <div class="blog" id="blog-1">
+        Effects Of Water Pollution
+        The effect of water pollution depends upon the type of pollutants and their concentration. Also, the location of water bodies is an important factor to determine the levels of pollution.
+        
+        Water bodies in the vicinity of urban areas are extremely polluted. This is the result of dumping garbage and toxic chemicals by industrial and commercial establishments.
+        Water pollution drastically affects aquatic life. It affects their metabolism, and behaviour, and causes illness and eventual death. Dioxin is a chemical that causes a lot of problems from reproduction to uncontrolled cell growth or cancer. This chemical is bioaccumulated in fish, chicken and meat. Chemicals such as this travel up the food chain before entering the human body.
+        The effect of water pollution can have a huge impact on the food chain. It disrupts the food chain. Cadmium and lead are some toxic substances, these pollutants upon entering the food chain through animals (fish when consumed by animals, humans) can continue to disrupt at higher levels.
+    </div>
+    <div class="like-area" id="like-area-1">
+        <div>
+            <button onclick="likeBlog(1)">Like</button>
+            <button onclick="unlikeBlog(1)">Unlike</button>
+            <span id="like-count-1">0</span> Likes
+        </div>
+        <textarea id="comments-1" placeholder="Add your comment"></textarea>
+        <button onclick="addComment(1)">Add Comment</button>
+        <div id="comments-display-1"></div>
+    </div>
+   
+    <div class="blog-heading"><u>BLOG-2</u></div>
+    <div class="blog" id="blog-2">
+        Effects of Air Pollution
+        The hazardous effects of air pollution on the environment include:
+        
+        Diseases
+        Air pollution has resulted in several respiratory disorders and heart diseases among humans. The cases of lung cancer have increased in the last few decades. Children living near polluted areas are more prone to pneumonia and asthma. Many people die every year due to the direct or indirect effects of air pollution.
+        
+        Global Warming
+        Due to the emission of greenhouse gases, there is an imbalance in the gaseous composition of the air. This has led to an increase in the temperature of the earth. This increase in earth’s temperature is known as global warming. This has resulted in the melting of glaciers and an increase in sea levels. Many areas are submerged underwater.
+        
+        Acid Rain
+        The burning of fossil fuels releases harmful gases such as nitrogen oxides and sulphur oxides in the air. The water droplets combine with these pollutants, become acidic and fall as acid rain which damages human, animal and plant life.    </div>
+    
+    <div class="like-area" id="like-area-2">
+        <div>
+            <button onclick="likeBlog(2)">Like</button>
+            <button onclick="unlikeBlog(2)">Unlike</button>
+            <span id="like-count-2">0</span> Likes
+        </div>
+        <textarea id="comments-2" placeholder="Add your comment"></textarea>
+        <button onclick="addComment(2)">Add Comment</button>
+        <div id="comments-display-2"></div>
+    </div>
+        
+    
+    <script>
+        function openBlog(blogNumber) {
+            const blogContent = document.getElementById(`blog-${blogNumber}`).innerHTML;
+            const newTab = window.open();
+            newTab.document.write(blogContent);
+            newTab.document.close();
+        }
+
+        function getLikeCount(blogNumber) {
+            return parseInt(localStorage.getItem(`likeCount-${blogNumber}`)) || 0;
+        }
+
+        function setLikeCount(blogNumber, likeCount) {
+            localStorage.setItem(`likeCount-${blogNumber}`, likeCount.toString());
+        }
+
+        function updateLikeCount(blogNumber) {
+            const likeCountElement = document.getElementById(`like-count-${blogNumber}`);
+            const likeCount = getLikeCount(blogNumber);
+            likeCountElement.textContent = likeCount;
+        }
+
+        function likeBlog(blogNumber) {
+            let likeCount = getLikeCount(blogNumber);
+            likeCount++;
+            setLikeCount(blogNumber, likeCount);
+            updateLikeCount(blogNumber);
+        }
+
+        function unlikeBlog(blogNumber) {
+            let likeCount = getLikeCount(blogNumber);
+            if (likeCount > 0) {
+                likeCount--;
+                setLikeCount(blogNumber, likeCount);
+                updateLikeCount(blogNumber);
+            }
+        }
+
+        function addComment(blogNumber) {
+            const commentsElement = document.getElementById(`comments-${blogNumber}`);
+            const comment = commentsElement.value;
+            const commentsDisplayElement = document.getElementById(`comments-display-${blogNumber}`);
+            commentsDisplayElement.innerHTML += `<p>${comment}</p>`;
+            commentsElement.value = '';
+        }
+        updateLikeCount(1);
+        updateLikeCount(2);
+    </script>
+</body>
+</html>

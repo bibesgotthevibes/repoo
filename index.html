@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     body {
+        font-family: Arial, sans-serif;
+          background-color: blueviolet;
+            margin: 0;
+            padding: 0;
+            overflow: scroll; 
+            scrollbar-width: thin; 
+            scrollbar-color: darkgray lightgray; 
+        }
+ html {
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        margin: 5px;
+    }
+}
+section {
+    padding: 15px;
+}
+@media screen and (max-width: 768px) {
+    section {
+        text-align: center;
+    }
+}
+.slide-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.content {
+    justify-content: center;
+    transform: translateX(-200%);
+    animation: slideIn 1s linear forwards;    
+}
+nav{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: slideNav 1s linear forwards;
+    }
+    nav a {
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333; 
+}
+     img {  max-width: 100%;
+            height: auto;
+            float: left; 
+            margin-right: 20px;
+            animation: slideNav 1s linear forwards;
+        }
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+/* #about{
+    width: 50%;
+} */
+@keyframes slideNav {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideImg {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .social-icons-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+        .darkmode_and_lightmode{
+            background-color: black;
+            color: white;
+        }
+        .darkmode_and_lightmode label,
+.darkmode_and_lightmode button {
+    display: inline; 
+    margin-right: 10px; 
+}
+
+       #myblog{
+        width: 50%;
+        height:200px;
+        margin:10% auto;
+        background-color: pink;
+        text-align: center;
+       }
+       #blog-heading{
+        margin-top:1%;
+        margin-bottom:4%;
+        padding:2%;
+        font-style:italic;
+        font-size:40px;
+
+       }
+       #blog-link{
+        font-size:20px;
+        margin-top:2%;
+       }
+       #blog-link:hover{
+        font-size:30px;
+        color:red;
+       }
+   #yo{
+    text-align: center;
+    color: blue;
+   }
+   #yo-ahref{
+    color: darkgreen;
+   }
+</style>
+<body>
+    <div class="slide-container">
+   <div class="content">
+     
+    <nav >
+        <a href="#about" onclick="scrollToSection('about')">About</a>
+        <a href="#profile_image" onclick="scrollToSection('profile_image')">Profile</a>
+        <a href="#education" onclick="scrollToSection('education')">Education</a>
+        <a href="#achievements" onclick="scrollToSection('achievements')">Achievements</a>
+        <a href="#skills" onclick="scrollToSection('skills')">Skills</a>
+        <a href="#myblog" onclick="scrollToSection('myblog')" >Blog</a>
+    </nav>
+    <br>
+    <label>Toggling between light and dark mode- </label>
+        <button onclick="Myfunction() " class="darkmode_and_lightmode">Click Me!</button>
+
+    <section id="profile_image">
+        <img src="bibes.jpeg" alt="Bibes Image" width="200px" height="250px">
+    </section>
+    <section id="about">
+        <h1 >About Myself</h1>
+        <p>Hello everyone, my name is Bibek Singh Dhody based in Noida (studying at IIIT Hyderabad) but I'm 
+    originally from Chandigarh.I have a keen interest in coding and my hobbies include listening to music, playing tennis etc.
+    My father and brother have been my role model and they have inspired me to work hard and achieve my goals which
+    is the main reason why I'm currently pursuing CSE at the esteemed institution of IIITH. I am also more of an indoor 
+    person rather than visiting outside places. 
+    
+    When I'm not studying, you can find me hanging out with friends, listening to music, or watching my favorite TV show
+    or spending time with my family. I find these to be major stress busters. 
+    Feel free to explore the rest of my website to learn more about my experiences,skills, Achievements etc.
+        </p>
+    </section>
+ <br><br>
+    <section id="achievements">
+        <h2>My Achievements till date are:</h2>
+        <ol>
+            <li> Securing 4th rank internationally in 10th grade and 19th rank internationally in 9th grade in IMO. </li>
+            <li> Securing a rank of 56 in NSO in 10th grade internationally. </li>
+            <li> I cleared NTSE stage 1 with a score of 161/200 in 10th grade. </li>
+            <li> I qualified for PRMO in 8th grade (first round). </li>
+            <li> I secured a rank of 1208 in JEE MAINS'23 and a rank of 3669 in JEE ADVANCED'23. </li>
+            <li> I have also won a few gold medals in my society in tennis competitions. </li>
+        </ol>
+    </section>
+   <section id="education">
+    <h2> My educational background: </h2>
+<table border="1" align="center">
+    <tr>
+        <th>
+          Educational background
+        </th>
+        <th>
+          Name of Institution
+        </th>
+        <th>
+          Year
+        </th>
+      </tr>
+    <tr>
+        <td> Schooling till 5th grade </td>
+        <td> DPS Hyderabad </td>
+        <td>2010-2015</td>
+    </tr>
+    <tr>
+        <td> Schooling from 5th to 10th grade </td>
+        <td> DPS Bangalore North </td>
+        <td>2015-2021</td>
+    </tr>
+    <tr>
+        <td>Institute for JEE preparation </td>
+        <td> Fiitjee Noida sector 62 </td>
+        <td>2021-2023</td>
+    </tr>
+<tr>
+        <td> College </td>
+        <td> IIIT Hyderabad </td>
+        <td>2023-2027</td>
+ </tr>
+</table>
+   </section>
+   <section id="skills"> 
+   <h1>My skills include:</h1>   
+   <ul>I can solve a 2*2, 3*3, 4*4, pyraminx, mirror cube.</ul> 
+   <ul> I play Tennis, football etc. </ul>
+    
+</section>
+<div id="myblog">
+    <div id="blog-heading" >view my blogs</div>
+    <a id="blog-link" href="blogs.html" target="_blank">Checkout my blogs</a>
+
+</div>
+<div id="yo">
+<h1> The link to my JEE-MAIN admit card : </h1>
+<a href ="Admit_card.pdf" style="color: red;">Click Me!</a>
+</div>
+<br>
+<div class="social-icons-container">
+    <a href="#" onclick="openSocialMedia('https://www.instagram.com/bibes_got_the_vibes_/'); return false;">
+        <img src="Instagram_icon.png" alt="Instagram" class="social-icon">
+    </a>
+    <a href="#" onclick="openSocialMedia('https://github.com/bibesgotthevibes'); return false;">
+        <img src="Git-icon.png" alt="Github" class="social-icon">
+    </a>
+    <a href="#" onclick="openSocialMedia('https://outlook.office.com/mail/'); return false;">
+        <img src="outlook.png" alt="Outlook" class="social-icon">
+    </a>
+</div>
+
+    <script src="java.js"></script>
+</div>
+</div>
+</body>
+</html>
